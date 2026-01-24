@@ -6,7 +6,12 @@
     <title>온라인 이커머스 1등 '최고집'입니다</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <style>
-        :root { --main-green: #79B933; --dark-bg: #111111; }
+        :root { 
+            --main-green: #79B933; 
+            --dark-bg: #111111; 
+            --kakao-yellow: #FEE500; 
+            --kakao-brown: #3C1E1E;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
         body { background-color: #fff; line-height: 1.6; color: #333; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
@@ -18,9 +23,28 @@
             padding: 20px 50px; transition: 0.3s; color: white;
         }
         nav.scrolled { background: white; color: #333; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo h2 { font-weight: 900; letter-spacing: -1px; }
+        
         .menu { display: flex; align-items: center; }
-        .menu a { margin-left: 25px; font-weight: 500; font-size: 15px; }
-        .btn-green { background: var(--main-green); color: white !important; padding: 10px 25px; border-radius: 50px; font-weight: bold; }
+        .menu a { margin-left: 20px; font-weight: 600; font-size: 15px; }
+
+        /* [추가] 카카오 버튼 스타일 */
+        .btn-kakao { 
+            background: var(--kakao-yellow); 
+            color: var(--kakao-brown) !important; 
+            padding: 10px 22px; 
+            border-radius: 50px; 
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(254, 229, 0, 0.3);
+            transition: 0.3s;
+        }
+        .btn-kakao:hover { transform: scale(1.05); }
+
+        .btn-green { background: var(--main-green); color: white !important; padding: 10px 25px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .btn-green:hover { background: #66a128; }
 
         /* 메인 슬라이드 */
         .slider-container { position: relative; height: 100vh; overflow: hidden; }
@@ -31,37 +55,15 @@
         }
         .slide.active { opacity: 1; }
         .slide::before { 
-    content: ""; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    
-    /* 0.5는 50% 어둡게입니다. 더 어둡게 하려면 숫자를 높이세요 (예: 0.7) */
-    background: rgba(0, 0, 0, 0.5); 
-    
-    z-index: 1; 
-}
-        .slide-content {
-    z-index: 2;
-    line-height: 1.1; /* 행간을 아주 좁게 설정 */
-}
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0, 0, 0, 0.5); z-index: 1; 
+        }
+        .slide-content { z-index: 2; line-height: 1.1; }
         .highlight-box { 
-    background: #000; /* 블랙으로 변경 */
-    padding: 3px 24px; /* 위아래 여백을 줄여 박스 두께 조절 */
-    font-size: 55px; 
-    font-weight: 800; 
-    display: inline-block; 
-    margin: 2px 0; /* 박스 사이의 간격 줄임 */
-    z-index: 2;
-}
-        .sub-text { 
-    font-size: 30px; 
-    margin-top: 10px; /* 메인 문구와의 간격 축소 */
-    font-weight: 500; 
-    z-index: 2;
-}
+            background: #000; padding: 3px 24px; font-size: 55px; 
+            font-weight: 800; display: inline-block; margin: 2px 0; z-index: 2;
+        }
+        .sub-text { font-size: 30px; margin-top: 10px; font-weight: 500; z-index: 2; }
 
         /* 공통 섹션 스타일 */
         section { padding: 100px 20px; text-align: center; }
@@ -80,18 +82,24 @@
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; }
 
         @media (max-width: 768px) {
-            .menu a:not(.btn-green) { display: none; }
+            nav { padding: 15px 20px; }
+            .menu a:not(.btn-green):not(.btn-kakao) { display: none; } /* 모바일에서 회사소개 등은 숨기고 버튼만 노출 */
             .highlight-box { font-size: 30px; }
+            .sub-text { font-size: 18px; }
+            .btn-kakao, .btn-green { padding: 8px 15px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
     <nav id="navbar">
-        <div class="logo"><h2>GOZIP</h2></div>
+        <div class="logo"><a href="index.html"><h2>GOZIP</h2></a></div>
         <div class="menu">
             <a href="about.html">회사소개</a>
             <a href="business.html">사업영역</a>
+            <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">
+                <span style="font-size: 18px;">💬</span> 오픈채널 참여하기
+            </a>
             <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green">발주플랫폼 바로가기</a>
         </div>
     </nav>
@@ -120,60 +128,52 @@
         </div>
     </div>
 
-<section style="max-width: 1200px; margin: 0 auto; padding: 100px 20px;">
-    <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 40px; font-weight: 800; margin-bottom: 15px;">최고집 취급 품목</h2>
-        <p style="color: #666; font-size: 22px;">이외에도 <span style="color: #79B933; font-weight: bold;">200가지가 넘는 SKU</span>가 준비되어 있습니다.</p>
-    </div>
-    
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+    <section style="max-width: 1200px; margin: 0 auto; padding: 100px 20px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-size: 40px; font-weight: 800; margin-bottom: 15px;">최고집 취급 품목</h2>
+            <p style="color: #666; font-size: 22px;">이외에도 <span style="color: #79B933; font-weight: bold;">200가지가 넘는 SKU</span>가 준비되어 있습니다.</p>
+        </div>
         
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/d8a57e4e-b107-4f78-a66b-2acce1307daa_1768811284345.jpg" alt="배.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">프리미엄 나주배</div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/d8a57e4e-b107-4f78-a66b-2acce1307daa_1768811284345.jpg" alt="배.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">프리미엄 나주배</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/6a245943-63f1-4f80-9970-71c80263f5e7_1768811283888.jpg" alt="귤.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">제주직송 조생귤</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/efdddb46-ff9d-45da-9097-cf5e3d7de768_1768811284552.jpg" alt="부사사과.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">경북 부사사과</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/556db641-09f8-430f-ab2c-81ac5d054578_1768811283656.jpg" alt="고구마.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">해남 꿀고구마</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/84ca132e-892a-4d17-9297-091f1ae571f0_1768811283371.jpg" alt="감자.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">토실토실 햇 감자</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/50d60e5e-b3ce-4fbf-8c92-0f5c40fb45ad_1768811284097.jpg" alt="딸기.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">프리미엄 딸기</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/04284cfd-9d1e-4290-ba13-af84815badc0_1768811284753.jpg" alt="선물세트.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">명절 선물세트</div>
+            </div>
+            <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <img src="https://store.img11.co.kr/70265634/39cd649d-2e05-4784-a153-8dd3a3a2ed6e_1768811284936.jpg" alt="옥수수.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
+                <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">사계절 옥수수</div>
+            </div>
         </div>
 
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/6a245943-63f1-4f80-9970-71c80263f5e7_1768811283888.jpg" alt="귤.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">제주직송 조생귤</div>
+        <div style="margin-top: 60px; text-align: center;">
+            <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green" style="padding: 18px 60px; font-size: 22px; display: inline-block;">간편 셀러등록</a>
         </div>
+    </section>
 
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/efdddb46-ff9d-45da-9097-cf5e3d7de768_1768811284552.jpg" alt="부사사과.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">경북 부사사과</div>
-        </div>
-
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/556db641-09f8-430f-ab2c-81ac5d054578_1768811283656.jpg" alt="고구마.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">해남 꿀고구마</div>
-        </div>
-
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/84ca132e-892a-4d17-9297-091f1ae571f0_1768811283371.jpg" alt="감자.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">토실토실 햇 감자</div>
-        </div>
-
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/50d60e5e-b3ce-4fbf-8c92-0f5c40fb45ad_1768811284097.jpg" alt="딸기.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">프리미엄 딸기</div>
-        </div>
-
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/04284cfd-9d1e-4290-ba13-af84815badc0_1768811284753.jpg" alt="선물세트.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">명절 선물세트</div>
-        </div>
-
-        <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <img src="https://store.img11.co.kr/70265634/39cd649d-2e05-4784-a153-8dd3a3a2ed6e_1768811284936.jpg" alt="옥수수.jpg" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;">
-            <div style="padding: 15px; text-align: center; font-size: 16px; font-weight: 600; color: #333; border-top: 1px solid #eee;">사계절 옥수수</div>
-        </div>
-
-    </div>
-
-    <div style="margin-top: 60px; text-align: center;">
-        <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green" style="padding: 18px 60px; font-size: 22px; display: inline-block;">간편 셀러등록</a>
-    </div>
-</section>
     <section style="background-color: #111; color: white;">
         <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 20px;">왜 '최고집'일까요?</h2>
         <hr style="width: 100px; border: 2px solid var(--main-green); margin: 0 auto 60px;">
