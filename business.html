@@ -112,10 +112,11 @@
 
         /* 모바일 대응 */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .menu a:not(.btn-green):not(.btn-kakao) { display: none; }
-            .page-header h1 { font-size: 32px; }
-        }
+    .service-grid { 
+        grid-template-columns: 1fr !important; /* 카드를 한 줄에 하나씩 */
+    }
+    .service-card { padding: 25px !important; } /* 여백 줄임 */
+    .service-card h3 { font-size: 20px !important; }
     </style>
 </head>
 <body>

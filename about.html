@@ -125,12 +125,15 @@
         .footer-info p { font-size: 14px; color: #999; line-height: 1.8; margin-bottom: 4px; }
 
         /* 모바일 대응 */
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .menu a:not(.btn-green):not(.btn-kakao) { display: none; }
-            .spec-grid { grid-template-columns: 1fr; }
-            .about-hero h1 { font-size: 32px; }
-        }
+       @media (max-width: 768px) {
+    .about-hero h1 { font-size: 28px !important; } /* 제목 크기 축소 */
+    .spec-grid { 
+        grid-template-columns: 1fr !important; /* 3열 -> 1열로 변경 */
+        gap: 10px; 
+    }
+    .info-img { width: 100% !important; border-radius: 0; } /* 이미지가 화면에 딱 맞게 */
+    p { font-size: 16px !important; padding: 0 10px; } /* 본문 텍스트 크기 최적화 */
+}
     </style>
 </head>
 <body>
