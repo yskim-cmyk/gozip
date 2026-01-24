@@ -82,27 +82,50 @@
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; }
 
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .menu a:not(.btn-green):not(.btn-kakao) { display: none; } /* 모바일에서 회사소개 등은 숨기고 버튼만 노출 */
-            .highlight-box { font-size: 30px; }
-            .sub-text { font-size: 18px; }
-            .btn-kakao, .btn-green { padding: 8px 15px; font-size: 13px; }
-        }
+    /* 네비게이션을 세로 2단으로 변경 */
+    nav { 
+        padding: 10px 10px !important; 
+        flex-direction: column !important; 
+        background: rgba(0,0,0,0.8) !important; /* 모바일 가독성용 배경 */
+    }
+    nav.scrolled { background: white !important; }
+
+    .logo { margin-bottom: 8px !important; }
+
+    /* 메뉴들을 한 줄에 꽉 차게 배치 */
+    .menu { 
+        display: flex !important; 
+        width: 100% !important; 
+        justify-content: center !important; 
+        gap: 5px !important; 
+    }
+
+    /* 글자 크기 살짝 줄여서 안 겹치게 */
+    .menu a { 
+        margin: 0 !important; 
+        font-size: 12px !important; 
+        padding: 5px 8px !important; 
+        white-space: nowrap !important; 
+    }
+    
+    /* 버튼들 크기 조정 */
+    .btn-kakao, .btn-green { 
+        padding: 6px 10px !important; 
+        font-size: 11px !important; 
+    }
+}
     </style>
 </head>
 <body>
-
     <nav id="navbar">
-        <div class="logo"><a href="index.html"><h2>GOZIP</h2></a></div>
-        <div class="menu">
-            <a href="about.html">회사소개</a>
-            <a href="business.html">사업영역</a>
-            <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">
-                <span style="font-size: 18px;">💬</span> 오픈채널 참여하기
-            </a>
-            <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green">발주플랫폼</a>
-        </div>
-    </nav>
+    <div class="logo"><h2>GOZIP</h2></div>
+    <div class="menu">
+        <a href="about.html">회사소개</a>
+        <a href="business.html">사업영역</a>
+        <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">💬 오픈채널</a>
+        <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" class="btn-green">발주플랫폼</a>
+    </div>
+</nav>
 
     <div class="slider-container">
         <div class="slide active" style="background-image: url('https://store.img11.co.kr/70265634/35920332-1289-4316-9932-34cefb97caf1_1768371148479.jpg');">

@@ -112,26 +112,51 @@
 
         /* 모바일 대응 */
         @media (max-width: 768px) {
-    .service-grid { 
-        grid-template-columns: 1fr !important; /* 카드를 한 줄에 하나씩 */
+    /* 네비게이션을 세로 2단으로 변경 */
+    nav { 
+        padding: 10px 10px !important; 
+        flex-direction: column !important; 
+        background: rgba(0,0,0,0.8) !important; /* 모바일 가독성용 배경 */
     }
-    .service-card { padding: 25px !important; } /* 여백 줄임 */
-    .service-card h3 { font-size: 20px !important; }
+    nav.scrolled { background: white !important; }
+
+    .logo { margin-bottom: 8px !important; }
+
+    /* 메뉴들을 한 줄에 꽉 차게 배치 */
+    .menu { 
+        display: flex !important; 
+        width: 100% !important; 
+        justify-content: center !important; 
+        gap: 5px !important; 
+    }
+
+    /* 글자 크기 살짝 줄여서 안 겹치게 */
+    .menu a { 
+        margin: 0 !important; 
+        font-size: 12px !important; 
+        padding: 5px 8px !important; 
+        white-space: nowrap !important; 
+    }
+    
+    /* 버튼들 크기 조정 */
+    .btn-kakao, .btn-green { 
+        padding: 6px 10px !important; 
+        font-size: 11px !important; 
+    }
+}
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo"><a href="index.html">GOZIP</a></div>
-        <div class="menu">
-            <a href="about.html">회사소개</a>
-            <a href="business.html" style="color:var(--main-green); font-weight:bold;">사업영역</a>
-            <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">
-                <span style="font-size: 18px;">💬</span> 오픈채널 참여하기
-            </a>
-            <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green">발주플랫폼</a>
-        </div>
-    </nav>
+    <nav id="navbar">
+    <div class="logo"><h2>GOZIP</h2></div>
+    <div class="menu">
+        <a href="about.html">회사소개</a>
+        <a href="business.html">사업영역</a>
+        <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">💬 오픈채널</a>
+        <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" class="btn-green">발주플랫폼</a>
+    </div>
+</nav>
 
     <header class="page-header">
         <h1>GOZIP <span>BUSINESS</span></h1>

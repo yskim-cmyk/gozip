@@ -126,29 +126,51 @@
 
         /* 모바일 대응 */
        @media (max-width: 768px) {
-    .about-hero h1 { font-size: 28px !important; } /* 제목 크기 축소 */
-    .spec-grid { 
-        grid-template-columns: 1fr !important; /* 3열 -> 1열로 변경 */
-        gap: 10px; 
+    /* 상단바를 세로 2단으로 구성 */
+    nav { 
+        padding: 10px 10px !important; 
+        flex-direction: column !important; 
+        background: rgba(0,0,0,0.85) !important; /* 배경을 약간 어둡게 해서 메뉴 글자 강조 */
     }
-    .info-img { width: 100% !important; border-radius: 0; } /* 이미지가 화면에 딱 맞게 */
-    p { font-size: 16px !important; padding: 0 10px; } /* 본문 텍스트 크기 최적화 */
+    nav.scrolled { background: white !important; }
+
+    .logo { margin-bottom: 8px !important; }
+
+    /* 메뉴 4개를 가로로 나란히 배치 */
+    .menu { 
+        display: flex !important; 
+        width: 100% !important; 
+        justify-content: center !important; 
+        gap: 4px !important; 
+    }
+
+    /* 메뉴 글자 크기 및 간격 조정 */
+    .menu a { 
+        margin: 0 !important; 
+        font-size: 11px !important; 
+        padding: 5px 7px !important; 
+        white-space: nowrap !important; 
+    }
+    
+    /* 카카오/발주 버튼 크기 조정 */
+    .btn-kakao, .btn-green { 
+        padding: 6px 10px !important; 
+        font-size: 11px !important; 
+    }
 }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo"><a href="index.html">GOZIP</a></div>
-        <div class="menu">
-            <a href="about.html" style="color:var(--main-green); font-weight:bold;">회사소개</a>
-            <a href="business.html">사업영역</a>
-            <a href="https://open.kakao.com/o/g5BavUph" target="_blank" class="btn-kakao">
-                <span style="font-size: 18px;">💬</span> 오픈채널 참여하기
-            </a>
-            <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" rel="noopener noreferrer" class="btn-green">발주플랫폼</a>
-        </div>
-    </nav>
+<nav id="navbar">
+    <div class="logo"><h2>GOZIP</h2></div>
+    <div class="menu">
+        <a href="about.html">회사소개</a>
+        <a href="business.html">사업영역</a>
+        <a href="https://open.kakao.com/o/링크" target="_blank" class="btn-kakao">💬 오픈채널</a>
+        <a href="https://zain0401.adminplus.co.kr/partner/login.html" target="_blank" class="btn-green">발주플랫폼</a>
+    </div>
+</nav>
 
     <header class="about-hero">
         <div class="about-hero-content">
